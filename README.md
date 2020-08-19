@@ -43,3 +43,72 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 ## License
 
 [CC0 1.0 (Public Domain)](LICENSE.md)
+
+# electron test specifics...
+
+
+<H1>Electron Installation</H1> ( https://www.npmjs.com/package/electron ) 
+
+To install prebuilt Electron binaries, use npm. The preferred method is to install Electron as a development dependency in your app:
+npm install electron --save-dev --save-exact
+
+
+quick start app:
+
+git clone https://github.com/electron/electron-quick-start
+cd electron-quick-start
+npm install
+npm start
+
+
+
+
+<h1>packager Installation</H1> ( https://www.npmjs.com/package/electron-packager )
+This module requires Node.js 4.0 or higher to run.
+
+# for use from cli 
+npm install electron-packager -g
+
+
+
+electron-packager <sourcedir> <appname> --platform=<platform> --arch=<arch> [optional flags...]
+
+can leave out platform and arch if just making a version for the current system/architechture
+
+used:
+electron-packager electron-quick-start quickstartapp
+
+to crate the package from just OUTSIDE the apps directory
+
+
+<H1>dmg creator:</H1> ( https://www.npmjs.com/package/electron-installer-dmg )
+
+installing:
+# For use from cli
+npm i electron-installer-dmg -g
+
+usage:
+Usage: electron-installer-dmg <path/to/.app> <appname>
+ 
+Create DMG installers for your electron apps.
+ 
+Usage:
+  electron-packager ./FooBar-darwin-x64/FooBar.app FooBar
+ 
+Options:
+  --out=<path>         The directory to put the DMG into. [Default: `process.cwd()`].
+  --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
+  --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
+  --background=<path>  Path to a PNG image to use as the background of the DMG.
+  --debug              Enable debug messages.
+  --overwrite          Overwrite any existing DMG.
+  -h --help            Show this screen.
+  --version            Show version.
+
+
+used:
+electron-installer-dmg quickstartapp-darwin-x64/quickstartapp.app qstart
+to create the dmg from just OUTSIDE the packaged app. 
+
+## This project specifics
+
