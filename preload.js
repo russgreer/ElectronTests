@@ -2,8 +2,7 @@
 // It has the same sandbox as a Chrome extension.
  
 const fetch = require('node-fetch')
-
-
+const addon = require('./test_module/build/Release/addon');
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -15,6 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
   for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${type}-version`, process.versions[type])
   }
+  
+  console.log("From C++ addon module." + addon.hello());
   
   document.getElementById("btn1").addEventListener("click", () => {
 
