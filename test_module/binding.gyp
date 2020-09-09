@@ -1,8 +1,8 @@
 {
   "targets": [
     {
-      "target_name": "addon",
-      "sources": [ "hello.cc" ],
+      "target_name": "customModule",
+      "sources": [ "customModule.cc" ],
 	  "include_dirs" : ["<!(node -e \"require('nan')\")"]
     }
   ]
